@@ -1,7 +1,16 @@
-from fastapi import FastAPI
-from db._data import fake_items_db
+from fastapi import FastAPI, status
+from fastapi.responses import JSONResponse
+from constants._data import fake_items_db
+from schemas import user
 
 app = FastAPI()
+
+@app.post("/")
+async def create(user:user.User)-> user.User:
+    print(user)
+    JSONResponse(status_code=200, content={
+        user
+    })
 
 @app.get("/")
 async def getPost(q:str, name: str = None):
@@ -9,7 +18,7 @@ async def getPost(q:str, name: str = None):
     print(name)
     return {"message": "get post"}
 
-@app.get("/fuck")
+@app.get("/find")
 async def read(skip: int = 0, limit:int = 10)->list[dict]:
     print(skip)
     print(limit)
