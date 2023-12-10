@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from utils import Role
 
-class User(BaseModel):
+class UserSchema(BaseModel):
     name: str | None = None
     age: int
     role: Role = Role.USER
