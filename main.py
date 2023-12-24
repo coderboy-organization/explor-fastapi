@@ -9,7 +9,7 @@ app = FastAPI()
 
 
 @app.get("/items", tags=["get items"])
-async def get_items(query: Annotated[str | None, Query(max_length=50)] = None):
+async def get_items(query: Annotated[str | None, Query(alias="query-mal", title="Query string here...", description="query string des", deprecated=True, min_length=3)] = None):
     print(query)
     results: dict[str, list[dict[str, str]]] = {
         "items": [
