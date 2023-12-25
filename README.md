@@ -12,7 +12,7 @@ Development setup
    python -m venv env
    ```
 4. Run your Virtual Env
-   - For windows
+   - For windows (**Bash Terminal**)
    ```bash
    source env/Scripts/activate
    ```
