@@ -1,0 +1,168 @@
+[
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Role",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "jsonable_encoder",
+        "importPath": "fastapi.encoders",
+        "description": "fastapi.encoders",
+        "isExtraImport": true,
+        "detail": "fastapi.encoders",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "fake_items_db",
+        "importPath": "constants._data",
+        "description": "constants._data",
+        "isExtraImport": true,
+        "detail": "constants._data",
+        "documentation": {}
+    },
+    {
+        "label": "UserSchema",
+        "importPath": "schemas.user",
+        "description": "schemas.user",
+        "isExtraImport": true,
+        "detail": "schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "fake_items_db:list[dict]",
+        "kind": 5,
+        "importPath": "main.constants._data",
+        "description": "main.constants._data",
+        "peekOfCode": "fake_items_db:list[dict] = [\n        {\n            \"item_name\": \"Foo\"\n        },\n        {\n            \"item_name\": \"Bar\"\n        },\n        {\n            \"item_name\": \"Baz\"\n        }",
+        "detail": "main.constants._data",
+        "documentation": {}
+    },
+    {
+        "label": "UserSchema",
+        "kind": 6,
+        "importPath": "main.schemas.user",
+        "description": "main.schemas.user",
+        "peekOfCode": "class UserSchema(BaseModel):\n    name: str | None = None\n    age: int\n    role: Role = Role.USER\n    email: str\n    password: str",
+        "detail": "main.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "app = FastAPI()\n@app.get(\"/items\", tags=[\"get items\"])\nasync def get_items(query: Annotated[str | None, Query(alias=\"query-mal\", title=\"Query string here...\", description=\"query string des\", deprecated=True, min_length=3)] = None):\n    print(query)\n    results: dict[str, list[dict[str, str]]] = {\n        \"items\": [\n            {\"item_id\": \"Foo\"},\n            {\"item_id\": \"Bar\"}\n        ]\n    }",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "get",
+        "kind": 2,
+        "importPath": "main.path",
+        "description": "main.path",
+        "peekOfCode": "def get(id: Annotated[int, Path(title=\"The ID of the item\")]):\n    # Path params if is alawys required\n    print(type(id))\n    results = {\"id\": id}\n    return results\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")],\n        q: Annotated[str | None, Query(alias=\"query\")] = None):\n    print(type(id))\n    results = {\"id\": id}",
+        "detail": "main.path",
+        "documentation": {}
+    },
+    {
+        "label": "get",
+        "kind": 2,
+        "importPath": "main.path",
+        "description": "main.path",
+        "peekOfCode": "def get(id: Annotated[int, Path(title=\"The ID of the item\")],\n        q: Annotated[str | None, Query(alias=\"query\")] = None):\n    print(type(id))\n    results = {\"id\": id}\n    if q:\n        results.update({\"q\": q})\n    return results\n\"\"\"\n@app.get(\"/item/{item_id}\")\nasync def item_id(item_id: Annotated[int, Path(title=\"10\", ge=0, le=20)], q: str):",
+        "detail": "main.path",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main.path",
+        "description": "main.path",
+        "peekOfCode": "app = FastAPI()\n\"\"\"\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")]):\n    # Path params if is alawys required\n    print(type(id))\n    results = {\"id\": id}\n    return results\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")],",
+        "detail": "main.path",
+        "documentation": {}
+    }
+]
