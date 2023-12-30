@@ -8,6 +8,14 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "Role",
         "importPath": "utils",
         "description": "utils",
@@ -64,6 +72,38 @@
         "documentation": {}
     },
     {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
         "label": "JSONResponse",
         "importPath": "fastapi.responses",
         "description": "fastapi.responses",
@@ -77,6 +117,14 @@
         "description": "fastapi.encoders",
         "isExtraImport": true,
         "detail": "fastapi.encoders",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -136,6 +184,24 @@
         "description": "main",
         "peekOfCode": "app = FastAPI()\n@app.get(\"/items\", tags=[\"get items\"])\nasync def get_items(query: Annotated[str | None, Query(alias=\"query-mal\", title=\"Query string here...\", description=\"query string des\", deprecated=True, min_length=3)] = None):\n    print(query)\n    results: dict[str, list[dict[str, str]]] = {\n        \"items\": [\n            {\"item_id\": \"Foo\"},\n            {\"item_id\": \"Bar\"}\n        ]\n    }",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "Item",
+        "kind": 6,
+        "importPath": "multiple",
+        "description": "multiple",
+        "peekOfCode": "class Item(BaseModel):\n    name: str\n    description: str | None = None\n    price: float\n    tax: float | None = None\n@app.put(\"/items/{item_id}\")\nasync def update_item(\n    item_id: Annotated[int, Path(title=\"The ID of the item to get\", ge=0, le=1000)],\n    q: str | None = None,\n    item: Item | None = None,",
+        "detail": "multiple",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "multiple",
+        "description": "multiple",
+        "peekOfCode": "app = FastAPI()\nclass Item(BaseModel):\n    name: str\n    description: str | None = None\n    price: float\n    tax: float | None = None\n@app.put(\"/items/{item_id}\")\nasync def update_item(\n    item_id: Annotated[int, Path(title=\"The ID of the item to get\", ge=0, le=1000)],\n    q: str | None = None,",
+        "detail": "multiple",
         "documentation": {}
     },
     {
