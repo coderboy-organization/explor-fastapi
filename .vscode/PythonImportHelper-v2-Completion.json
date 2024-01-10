@@ -1,234 +1,239 @@
 [
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "Role",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "status",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Query",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Query",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Query",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "jsonable_encoder",
-        "importPath": "fastapi.encoders",
-        "description": "fastapi.encoders",
-        "isExtraImport": true,
-        "detail": "fastapi.encoders",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "fake_items_db",
-        "importPath": "constants._data",
-        "description": "constants._data",
-        "isExtraImport": true,
-        "detail": "constants._data",
-        "documentation": {}
-    },
-    {
-        "label": "UserSchema",
-        "importPath": "schemas.user",
-        "description": "schemas.user",
-        "isExtraImport": true,
-        "detail": "schemas.user",
-        "documentation": {}
-    },
-    {
-        "label": "fake_items_db:list[dict]",
-        "kind": 5,
-        "importPath": "constants._data",
-        "description": "constants._data",
-        "peekOfCode": "fake_items_db:list[dict] = [\n        {\n            \"item_name\": \"Foo\"\n        },\n        {\n            \"item_name\": \"Bar\"\n        },\n        {\n            \"item_name\": \"Baz\"\n        }",
-        "detail": "constants._data",
-        "documentation": {}
-    },
-    {
-        "label": "UserSchema",
-        "kind": 6,
-        "importPath": "schemas.user",
-        "description": "schemas.user",
-        "peekOfCode": "class UserSchema(BaseModel):\n    name: str | None = None\n    age: int\n    role: Role = Role.USER\n    email: str\n    password: str",
-        "detail": "schemas.user",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "app = FastAPI()\n@app.get(\"/items\", tags=[\"get items\"])\nasync def get_items(query: Annotated[str | None, Query(alias=\"query-mal\", title=\"Query string here...\", description=\"query string des\", deprecated=True, min_length=3)] = None):\n    print(query)\n    results: dict[str, list[dict[str, str]]] = {\n        \"items\": [\n            {\"item_id\": \"Foo\"},\n            {\"item_id\": \"Bar\"}\n        ]\n    }",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "Item",
-        "kind": 6,
-        "importPath": "multiple",
-        "description": "multiple",
-        "peekOfCode": "class Item(BaseModel):\n    name: str\n    description: str | None = None\n    price: float\n    tax: float | None = None\n@app.put(\"/items/{item_id}\")\nasync def update_item(\n    item_id: Annotated[int, Path(title=\"The ID of the item to get\", ge=0, le=1000)],\n    q: str | None = None,\n    item: Item | None = None,",
-        "detail": "multiple",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "multiple",
-        "description": "multiple",
-        "peekOfCode": "app = FastAPI()\nclass Item(BaseModel):\n    name: str\n    description: str | None = None\n    price: float\n    tax: float | None = None\n@app.put(\"/items/{item_id}\")\nasync def update_item(\n    item_id: Annotated[int, Path(title=\"The ID of the item to get\", ge=0, le=1000)],\n    q: str | None = None,",
-        "detail": "multiple",
-        "documentation": {}
-    },
-    {
-        "label": "get",
-        "kind": 2,
-        "importPath": "path",
-        "description": "path",
-        "peekOfCode": "def get(id: Annotated[int, Path(title=\"The ID of the item\")]):\n    # Path params if is alawys required\n    print(type(id))\n    results = {\"id\": id}\n    return results\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")],\n        q: Annotated[str | None, Query(alias=\"query\")] = None):\n    print(type(id))\n    results = {\"id\": id}",
-        "detail": "path",
-        "documentation": {}
-    },
-    {
-        "label": "get",
-        "kind": 2,
-        "importPath": "path",
-        "description": "path",
-        "peekOfCode": "def get(id: Annotated[int, Path(title=\"The ID of the item\")],\n        q: Annotated[str | None, Query(alias=\"query\")] = None):\n    print(type(id))\n    results = {\"id\": id}\n    if q:\n        results.update({\"q\": q})\n    return results\n\"\"\"\n@app.get(\"/item/{item_id}\")\nasync def item_id(item_id: Annotated[int, Path(title=\"10\", ge=0, le=20)], q: str):",
-        "detail": "path",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "path",
-        "description": "path",
-        "peekOfCode": "app = FastAPI()\n\"\"\"\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")]):\n    # Path params if is alawys required\n    print(type(id))\n    results = {\"id\": id}\n    return results\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")],",
-        "detail": "path",
-        "documentation": {}
-    }
+  {
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.pythonPath": "C:\\Users\\ben\\Anaconda3\\python.exe"
+  },
+  {
+    "label": "BaseModel",
+    "importPath": "pydantic",
+    "description": "pydantic",
+    "isExtraImport": true,
+    "detail": "pydantic",
+    "documentation": {}
+  },
+  {
+    "label": "BaseModel",
+    "importPath": "pydantic",
+    "description": "pydantic",
+    "isExtraImport": true,
+    "detail": "pydantic",
+    "documentation": {}
+  },
+  {
+    "label": "Role",
+    "importPath": "utils",
+    "description": "utils",
+    "isExtraImport": true,
+    "detail": "utils",
+    "documentation": {}
+  },
+  {
+    "label": "FastAPI",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "status",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "Query",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "FastAPI",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "Path",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "Query",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "FastAPI",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "Path",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "Query",
+    "importPath": "fastapi",
+    "description": "fastapi",
+    "isExtraImport": true,
+    "detail": "fastapi",
+    "documentation": {}
+  },
+  {
+    "label": "JSONResponse",
+    "importPath": "fastapi.responses",
+    "description": "fastapi.responses",
+    "isExtraImport": true,
+    "detail": "fastapi.responses",
+    "documentation": {}
+  },
+  {
+    "label": "JSONResponse",
+    "importPath": "fastapi.responses",
+    "description": "fastapi.responses",
+    "isExtraImport": true,
+    "detail": "fastapi.responses",
+    "documentation": {}
+  },
+  {
+    "label": "jsonable_encoder",
+    "importPath": "fastapi.encoders",
+    "description": "fastapi.encoders",
+    "isExtraImport": true,
+    "detail": "fastapi.encoders",
+    "documentation": {}
+  },
+  {
+    "label": "Annotated",
+    "importPath": "typing",
+    "description": "typing",
+    "isExtraImport": true,
+    "detail": "typing",
+    "documentation": {}
+  },
+  {
+    "label": "Annotated",
+    "importPath": "typing",
+    "description": "typing",
+    "isExtraImport": true,
+    "detail": "typing",
+    "documentation": {}
+  },
+  {
+    "label": "Annotated",
+    "importPath": "typing",
+    "description": "typing",
+    "isExtraImport": true,
+    "detail": "typing",
+    "documentation": {}
+  },
+  {
+    "label": "fake_items_db",
+    "importPath": "constants._data",
+    "description": "constants._data",
+    "isExtraImport": true,
+    "detail": "constants._data",
+    "documentation": {}
+  },
+  {
+    "label": "UserSchema",
+    "importPath": "schemas.user",
+    "description": "schemas.user",
+    "isExtraImport": true,
+    "detail": "schemas.user",
+    "documentation": {}
+  },
+  {
+    "label": "fake_items_db:list[dict]",
+    "kind": 5,
+    "importPath": "constants._data",
+    "description": "constants._data",
+    "peekOfCode": "fake_items_db:list[dict] = [\n        {\n            \"item_name\": \"Foo\"\n        },\n        {\n            \"item_name\": \"Bar\"\n        },\n        {\n            \"item_name\": \"Baz\"\n        }",
+    "detail": "constants._data",
+    "documentation": {}
+  },
+  {
+    "label": "UserSchema",
+    "kind": 6,
+    "importPath": "schemas.user",
+    "description": "schemas.user",
+    "peekOfCode": "class UserSchema(BaseModel):\n    name: str | None = None\n    age: int\n    role: Role = Role.USER\n    email: str\n    password: str",
+    "detail": "schemas.user",
+    "documentation": {}
+  },
+  {
+    "label": "app",
+    "kind": 5,
+    "importPath": "main",
+    "description": "main",
+    "peekOfCode": "app = FastAPI()\n@app.get(\"/items\", tags=[\"get items\"])\nasync def get_items(query: Annotated[str | None, Query(alias=\"query-mal\", title=\"Query string here...\", description=\"query string des\", deprecated=True, min_length=3)] = None):\n    print(query)\n    results: dict[str, list[dict[str, str]]] = {\n        \"items\": [\n            {\"item_id\": \"Foo\"},\n            {\"item_id\": \"Bar\"}\n        ]\n    }",
+    "detail": "main",
+    "documentation": {}
+  },
+  {
+    "label": "Item",
+    "kind": 6,
+    "importPath": "multiple",
+    "description": "multiple",
+    "peekOfCode": "class Item(BaseModel):\n    name: str\n    description: str | None = None\n    price: float\n    tax: float | None = None\n@app.put(\"/items/{item_id}\")\nasync def update_item(\n    item_id: Annotated[int, Path(title=\"The ID of the item to get\", ge=0, le=1000)],\n    q: str | None = None,\n    item: Item | None = None,",
+    "detail": "multiple",
+    "documentation": {}
+  },
+  {
+    "label": "app",
+    "kind": 5,
+    "importPath": "multiple",
+    "description": "multiple",
+    "peekOfCode": "app = FastAPI()\nclass Item(BaseModel):\n    name: str\n    description: str | None = None\n    price: float\n    tax: float | None = None\n@app.put(\"/items/{item_id}\")\nasync def update_item(\n    item_id: Annotated[int, Path(title=\"The ID of the item to get\", ge=0, le=1000)],\n    q: str | None = None,",
+    "detail": "multiple",
+    "documentation": {}
+  },
+  {
+    "label": "get",
+    "kind": 2,
+    "importPath": "path",
+    "description": "path",
+    "peekOfCode": "def get(id: Annotated[int, Path(title=\"The ID of the item\")]):\n    # Path params if is alawys required\n    print(type(id))\n    results = {\"id\": id}\n    return results\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")],\n        q: Annotated[str | None, Query(alias=\"query\")] = None):\n    print(type(id))\n    results = {\"id\": id}",
+    "detail": "path",
+    "documentation": {}
+  },
+  {
+    "label": "get",
+    "kind": 2,
+    "importPath": "path",
+    "description": "path",
+    "peekOfCode": "def get(id: Annotated[int, Path(title=\"The ID of the item\")],\n        q: Annotated[str | None, Query(alias=\"query\")] = None):\n    print(type(id))\n    results = {\"id\": id}\n    if q:\n        results.update({\"q\": q})\n    return results\n\"\"\"\n@app.get(\"/item/{item_id}\")\nasync def item_id(item_id: Annotated[int, Path(title=\"10\", ge=0, le=20)], q: str):",
+    "detail": "path",
+    "documentation": {}
+  },
+  {
+    "label": "app",
+    "kind": 5,
+    "importPath": "path",
+    "description": "path",
+    "peekOfCode": "app = FastAPI()\n\"\"\"\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")]):\n    # Path params if is alawys required\n    print(type(id))\n    results = {\"id\": id}\n    return results\n@app.get(\"/{id}\")\ndef get(id: Annotated[int, Path(title=\"The ID of the item\")],",
+    "detail": "path",
+    "documentation": {}
+  }
 ]
